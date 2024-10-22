@@ -6,7 +6,13 @@ import {
     AccordionTrigger,
 } from '@/components/ui/accordion';
 import { CompoundStyleImpl } from '@/lib/editor/styles';
-import { LayoutGroup, PositionGroup, StyleGroup, TextGroup } from '@/lib/editor/styles/group';
+import {
+    LayoutGroup,
+    PositionGroup,
+    ShadowStyle,
+    StyleGroup,
+    TextGroup,
+} from '@/lib/editor/styles/group';
 import {
     BaseStyle,
     CompoundStyleKey,
@@ -29,7 +35,7 @@ import TextInput from './single/TextInput';
 export const STYLE_GROUP_MAPPING: Record<StyleGroupKey, BaseStyle[]> = {
     [StyleGroupKey.Position]: PositionGroup,
     [StyleGroupKey.Layout]: LayoutGroup,
-    [StyleGroupKey.Style]: StyleGroup,
+    [StyleGroupKey.Style]: [...StyleGroup, ShadowStyle],
     [StyleGroupKey.Text]: TextGroup,
 };
 
@@ -79,6 +85,8 @@ const ManualTab = observer(() => {
             return <DisplayInput compoundStyle={style} />;
         } else if (style.key === CompoundStyleKey.Border) {
             return <BorderInput compoundStyle={style} />;
+        } else if (style.key === CompoundStyleKey.Shadow) {
+            return <ShadowInput compoundStyle={style} />;
         } else {
             return (
                 <div className="flex flex-row items-center">

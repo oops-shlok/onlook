@@ -220,6 +220,40 @@ export const StyleGroup = [
     ),
 ];
 
+export const ShadowGroup = [
+    new SingleStyleImpl('shadowType', 'drop-shadow', 'Type', StyleType.Select, {
+        options: ['drop-shadow', 'box-shadow'],
+    }),
+    new SingleStyleImpl('shadowPosition', 'outside', 'Position', StyleType.Select, {
+        options: ['inside', 'outside'],
+    }),
+    new SingleStyleImpl('shadowColor', '#000000', 'Color', StyleType.Color),
+    new SingleStyleImpl('shadowOffsetX', '0px', 'X Offset', StyleType.Number, {
+        units: ['px'],
+        max: 1000,
+    }),
+    new SingleStyleImpl('shadowOffsetY', '0px', 'Y Offset', StyleType.Number, {
+        units: ['px'],
+        max: 1000,
+    }),
+    new SingleStyleImpl('shadowBlur', '0px', 'Blur', StyleType.Number, {
+        units: ['px'],
+        max: 1000,
+    }),
+    new SingleStyleImpl('shadowSpread', '0px', 'Spread', StyleType.Number, {
+        units: ['px'],
+        max: 1000,
+    }),
+];
+
+export const ShadowStyle = new CompoundStyleImpl(
+    CompoundStyleKey.Shadow,
+    new SingleStyleImpl('shadowType', 'drop-shadow', 'Type', StyleType.Select, {
+        options: ['drop-shadow', 'box-shadow'],
+    }),
+    ShadowGroup,
+);
+
 export const TextGroup = [
     new SingleStyleImpl('color', '#000000', 'Color', StyleType.Color),
 

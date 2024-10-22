@@ -39,6 +39,7 @@ export enum CompoundStyleKey {
     Corners = 'Corners',
     Border = 'Border',
     Display = 'Display',
+    Shadow = 'Shadow',
 }
 
 export enum StyleGroupKey {
